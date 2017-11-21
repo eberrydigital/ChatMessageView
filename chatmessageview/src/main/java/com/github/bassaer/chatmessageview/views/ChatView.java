@@ -15,11 +15,14 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.github.bassaer.chatmessageview.R;
 import com.github.bassaer.chatmessageview.models.Attribute;
 import com.github.bassaer.chatmessageview.models.Message;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Chat view with edit view and send button
@@ -28,14 +31,9 @@ import com.github.bassaer.chatmessageview.models.Message;
 public class ChatView extends LinearLayout {
     private MessageView mMessageView;
     private EditText mInputText;
-    private ImageButton mSendButton;
-    private ImageButton mOptionButton;
+    private ImageView mSendButton;
     private SwipeRefreshLayout mChatContainer;
     private InputMethodManager mInputMethodManager;
-    private int mSendIconId = R.drawable.ic_action_send;
-    private int mOptionIconId = R.drawable.ic_action_add;
-    private int mSendIconColor = ContextCompat.getColor(getContext(), R.color.lightBlue500);
-    private int mOptionIconColor = ContextCompat.getColor(getContext(), R.color.lightBlue500);
     private boolean mAutoScroll = true;
     private boolean mAutoHidingKeyboard = true;
     private Attribute mAttribute;
@@ -57,8 +55,7 @@ public class ChatView extends LinearLayout {
         View layout = LayoutInflater.from(context).inflate(R.layout.chat_view, this);
         mMessageView = (MessageView) layout.findViewById(R.id.message_view);
         mInputText = (EditText) layout.findViewById(R.id.message_edit_text);
-        mSendButton = (ImageButton) layout.findViewById(R.id.send_button);
-        mOptionButton = (ImageButton) layout.findViewById(R.id.option_button);
+        mSendButton = (ImageView) layout.findViewById(R.id.send_button);
         mChatContainer = (SwipeRefreshLayout) layout.findViewById(R.id.chat_container);
         mChatContainer.setEnabled(false);
 
@@ -161,24 +158,11 @@ public class ChatView extends LinearLayout {
         mSendButton.setOnClickListener(listener);
     }
 
-    public void setOnClickOptionButtonListener(View.OnClickListener listener) {
-        mOptionButton.setOnClickListener(listener);
-    }
-
     public void setBackgroundColor(int color) {
         mMessageView.setBackgroundColor(color);
         mChatContainer.setBackgroundColor(color);
     }
 
-    public void setSendButtonColor(int color) {
-        mSendIconColor = color;
-        mSendButton.setImageDrawable(getColoredDrawable(color, mSendIconId));
-    }
-
-    public void setOptionButtonColor(int color) {
-        mOptionIconColor = color;
-        mOptionButton.setImageDrawable(getColoredDrawable(color, mOptionIconId));
-    }
 
     public Drawable getColoredDrawable(int color, int iconId) {
         ColorStateList colorStateList = ColorStateList.valueOf(color);
@@ -188,35 +172,15 @@ public class ChatView extends LinearLayout {
         return wrappedDrawable;
     }
 
-    public void setSendIcon(int resId) {
-        mSendIconId = resId;
-        setSendButtonColor(mSendIconColor);
-    }
-
-    public void setOptionIcon(int resId) {
-        mOptionIconId = resId;
-        setOptionButtonColor(mOptionIconColor);
-    }
 
     public void setInputTextHint(String hint) {
         mInputText.setHint(hint);
-    }
-
-    public void setUsernameTextColor(int color) {
-        mMessageView.setUsernameTextColor(color);
-    }
-
-    public void setSendTimeTextColor(int color) {
-        mMessageView.setSendTimeTextColor(color);
     }
 
     public void setDateSeparatorColor(int color) {
         mMessageView.setDateSeparatorTextColor(color);
     }
 
-    public void setRightMessageTextColor(int color) {
-        mMessageView.setRightMessageTextColor(color);
-    }
 
     public void setMessageStatusTextColor(int color) {
         mMessageView.setMessageStatusColor(color);
@@ -236,10 +200,6 @@ public class ChatView extends LinearLayout {
 
     public void setOnIconLongClickListener(Message.OnIconLongClickListener listener) {
         mMessageView.setOnIconLongClickListener(listener);
-    }
-
-    public void setLeftMessageTextColor(int color) {
-        mMessageView.setLeftMessageTextColor(color);
     }
 
     /**

@@ -211,28 +211,12 @@ public class MessageView extends ListView implements View.OnFocusChangeListener{
         mMessageAdapter.setRightBubbleColor(color);
     }
 
-    public void setUsernameTextColor(int color) {
-        mMessageAdapter.setUsernameTextColor(color);
-    }
-
-    public void setSendTimeTextColor(int color) {
-        mMessageAdapter.setSendTimeTextColor(color);
-    }
-
     public void setMessageStatusColor(int color) {
         mMessageAdapter.setStatusColor(color);
     }
 
     public void setDateSeparatorTextColor(int color) {
         mMessageAdapter.setDateSeparatorColor(color);
-    }
-
-    public void setRightMessageTextColor(int color) {
-        mMessageAdapter.setRightMessageTextColor(color);
-    }
-
-    public void setLeftMessageTextColor(int color) {
-        mMessageAdapter.setLeftMessageTextColor(color);
     }
 
     public void setOnBubbleClickListener(Message.OnBubbleClickListener listener) {

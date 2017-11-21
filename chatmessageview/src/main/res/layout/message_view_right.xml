@@ -46,6 +46,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/default_time_text"
+                    fontPath="DINRoundOT-Medium.otf"
+                    android:textColor="@color/nchWhite"
                     android:textSize="@dimen/font_small"/>
 
             </LinearLayout>
@@ -58,10 +60,5 @@
         </LinearLayout>
 
     </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/user_icon_container"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
 </LinearLayout>

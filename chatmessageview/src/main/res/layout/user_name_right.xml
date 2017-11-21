@@ -8,5 +8,7 @@
     android:layout_marginTop="@dimen/spacing_line"
     android:text="@string/unknown"
     android:textSize="@dimen/font_small"
+    android:textColor="@color/default_right_item_color"
+    fontPath="DINRoundOT-Bold.otf"
     android:lines="1"
     android:ellipsize="end"/>

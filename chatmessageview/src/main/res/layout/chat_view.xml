@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+    android:background="@drawable/background_gradient"
               android:orientation="vertical">
 
     <android.support.v4.widget.SwipeRefreshLayout
@@ -22,32 +23,32 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/icon_normal"
-        android:background="@color/blueGray50"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         android:orientation="horizontal"
         >
-
-        <ImageButton
-            android:id="@+id/option_button"
-            style="@style/Base.Widget.AppCompat.Button.Borderless"
-            android:layout_width="@dimen/icon_normal"
-            android:layout_height="@dimen/icon_normal"
-            android:src="@drawable/ic_action_add"
-            android:contentDescription="@string/attach" />
 
         <EditText
             android:id="@+id/message_edit_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="@string/input_hint"/>
+            android:maxLines="5"
+            android:padding="10dp"
+            android:inputType="textNoSuggestions|textVisiblePassword"
+            android:layout_marginRight="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/edittext_rounded_background"
+         />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/send_button"
-            style="@style/Base.Widget.AppCompat.Button.Borderless"
-            android:layout_width="@dimen/icon_normal"
-            android:layout_height="@dimen/icon_normal"
-            android:src="@drawable/ic_action_send"
+            android:layout_margin="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:src="@drawable/send_button"
             android:contentDescription="@string/send" />
 
     </LinearLayout>

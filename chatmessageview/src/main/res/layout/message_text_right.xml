@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TextView
     android:id="@+id/message_text"
+    fontPath="DINRoundOT-Medium.otf"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/message_text_shape_right"
     android:gravity="start"
     android:maxWidth="@dimen/width_normal"
-    android:padding="@dimen/spacing_micro"
+    android:minWidth="@dimen/width_normal"
+    android:padding="@dimen/spacing_tiny"
     android:text="@string/default_text_short"
-    android:textColor="@android:color/white"
+    android:textColor="@color/nchDarkBlueColor"
     android:textSize="@dimen/font_normal"/>

@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Path;
 import android.graphics.RectF;
 import android.os.Build;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
@@ -14,7 +15,7 @@ import com.github.bassaer.chatmessageview.R;
  * Round Image view for picture on message
  * Created by nakayama on 2017/03/08.
  */
-public class RoundImageView extends ImageView {
+public class RoundImageView extends AppCompatImageView {
     private Path mClipPath;
 
     public RoundImageView(Context context) {

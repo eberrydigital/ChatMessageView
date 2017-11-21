@@ -3,8 +3,8 @@
 
     <!-- Font size -->
     <dimen name="font_large">25sp</dimen>
-    <dimen name="font_normal">20sp</dimen>
-    <dimen name="font_small">15sp</dimen>
+    <dimen name="font_normal">16sp</dimen>
+    <dimen name="font_small">11sp</dimen>
 
     <!-- Icon size -->
     <dimen name="icon_small">20dp</dimen>
@@ -14,9 +14,9 @@
     <dimen name="spacing_huge">100dp</dimen>
     <dimen name="spacing_large">50dp</dimen>
     <dimen name="spacing_normal">20dp</dimen>
-    <dimen name="spacing_small">16dp</dimen>
+    <dimen name="spacing_small">8dp</dimen>
     <dimen name="spacing_tiny">12dp</dimen>
-    <dimen name="spacing_micro">10dp</dimen>
+    <dimen name="spacing_micro">5dp</dimen>
     <dimen name="spacing_line">2dp</dimen>
 
     <!-- Layout width -->

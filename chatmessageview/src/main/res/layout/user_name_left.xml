@@ -9,4 +9,6 @@
     android:text="@string/unknown"
     android:textSize="@dimen/font_small"
     android:lines="1"
+    android:textColor="@color/default_left_item_color"
+    fontPath="DINRoundOT-Bold.otf"
     android:ellipsize="end"/>
