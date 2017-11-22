@@ -15,11 +15,11 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.eberrydigital.chatview.R;
 import com.eberrydigital.chatview.model.Attribute;
 import com.eberrydigital.chatview.model.User;
 import com.eberrydigital.chatview.models.Message;
-import com.eberrydigital.chatview.views.RoundImageView;
-import com.github.bassaer.chatmessageview.R;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -355,7 +355,6 @@ public class MessageAdapter extends ArrayAdapter<Object> {
 
     class MessageViewHolder {
         CircleImageView icon;
-        RoundImageView messagePicture;
         TextView messageText;
         TextView timeText;
         TextView username;

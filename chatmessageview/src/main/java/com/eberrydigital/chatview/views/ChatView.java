@@ -17,9 +17,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.eberrydigital.chatview.R;
 import com.eberrydigital.chatview.model.Attribute;
 import com.eberrydigital.chatview.models.Message;
-import com.github.bassaer.chatmessageview.R;
 
 /**
  * Chat view with edit view and send button
