@@ -37,7 +37,7 @@
             android:background="@drawable/edittext_rounded_background"
             android:inputType="textNoSuggestions|textVisiblePassword"
             android:maxLines="5"
-            android:padding="10dp" />
+            android:padding="5dp" />
 
         <ImageView
             android:id="@+id/send_button"
