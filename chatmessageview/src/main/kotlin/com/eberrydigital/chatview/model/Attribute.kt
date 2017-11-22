@@ -2,7 +2,8 @@ package com.eberrydigital.chatview.model
 
 import android.content.Context
 import android.util.AttributeSet
-import com.github.bassaer.chatmessageview.R
+import com.eberrydigital.chatview.R
+
 
 /**
  * View attribute
