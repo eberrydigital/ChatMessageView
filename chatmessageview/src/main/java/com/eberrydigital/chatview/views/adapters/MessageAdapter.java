@@ -1,4 +1,4 @@
-package com.github.bassaer.chatmessageview.views.adapters;
+package com.eberrydigital.chatview.views.adapters;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -15,11 +15,11 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.eberrydigital.chatview.model.Attribute;
+import com.eberrydigital.chatview.model.User;
+import com.eberrydigital.chatview.models.Message;
+import com.eberrydigital.chatview.views.RoundImageView;
 import com.github.bassaer.chatmessageview.R;
-import com.github.bassaer.chatmessageview.model.User;
-import com.github.bassaer.chatmessageview.models.Attribute;
-import com.github.bassaer.chatmessageview.models.Message;
-import com.github.bassaer.chatmessageview.views.RoundImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +59,7 @@ public class MessageAdapter extends ArrayAdapter<Object> {
 
     public MessageAdapter(Context context, int resource, List<Object> objects, Attribute attribute) {
         super(context, resource, objects);
-        mLayoutInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mObjects = objects;
         mViewTypes.add(String.class);
         mViewTypes.add(Message.class);
@@ -149,28 +149,27 @@ public class MessageAdapter extends ArrayAdapter<Object> {
                 }
 
 
-
                 //Show message status
                 if (message.getMessageStatusType() == Message.MESSAGE_STATUS_ICON || message.getMessageStatusType() == Message.MESSAGE_STATUS_ICON_RIGHT_ONLY) {
                     //Show message status icon
                     View statusIcon = mLayoutInflater.inflate(R.layout.message_status_icon, holder.statusContainer);
-                    holder.statusIcon = (ImageView)statusIcon.findViewById(R.id.status_icon_image_view);
+                    holder.statusIcon = (ImageView) statusIcon.findViewById(R.id.status_icon_image_view);
                     holder.statusIcon.setImageDrawable(message.getStatusIcon());
                     setColorDrawable(mStatusColor, holder.statusIcon.getDrawable());
                 } else if (message.getMessageStatusType() == Message.MESSAGE_STATUS_TEXT || message.getMessageStatusType() == Message.MESSAGE_STATUS_TEXT_RIGHT_ONLY) {
                     //Show message status text
                     View statusText = mLayoutInflater.inflate(R.layout.message_status_text, holder.statusContainer);
-                    holder.statusText = (TextView)statusText.findViewById(R.id.status_text_view);
+                    holder.statusText = (TextView) statusText.findViewById(R.id.status_text_view);
                     holder.statusText.setText(message.getStatusText());
                     holder.statusText.setTextColor(mStatusColor);
                 }
 
-                    //Set text
-                    View textBubble = mLayoutInflater.inflate(R.layout.message_text_right, holder.mainMessageContainer);
-                    holder.messageText = (TextView) textBubble.findViewById(R.id.message_text);
-                    holder.messageText.setText(message.getMessageText());
-                    //Set bubble color
-                    setColorDrawable(mRightBubbleColor, holder.messageText.getBackground());
+                //Set text
+                View textBubble = mLayoutInflater.inflate(R.layout.message_text_right, holder.mainMessageContainer);
+                holder.messageText = (TextView) textBubble.findViewById(R.id.message_text);
+                holder.messageText.setText(message.getMessageText());
+                //Set bubble color
+                setColorDrawable(mRightBubbleColor, holder.messageText.getBackground());
 
                 holder.timeText.setText(message.getTimeText());
 
@@ -208,23 +207,23 @@ public class MessageAdapter extends ArrayAdapter<Object> {
                 if (message.getMessageStatusType() == Message.MESSAGE_STATUS_ICON || message.getMessageStatusType() == Message.MESSAGE_STATUS_ICON_LEFT_ONLY) {
                     //Show message status icon
                     View statusIcon = mLayoutInflater.inflate(R.layout.message_status_icon, holder.statusContainer);
-                    holder.statusIcon = (ImageView)statusIcon.findViewById(R.id.status_icon_image_view);
+                    holder.statusIcon = (ImageView) statusIcon.findViewById(R.id.status_icon_image_view);
                     holder.statusIcon.setImageDrawable(message.getStatusIcon());
                     setColorDrawable(mStatusColor, holder.statusIcon.getDrawable());
                 } else if (message.getMessageStatusType() == Message.MESSAGE_STATUS_TEXT || message.getMessageStatusType() == Message.MESSAGE_STATUS_TEXT_LEFT_ONLY) {
                     //Show message status text
                     View statusText = mLayoutInflater.inflate(R.layout.message_status_text, holder.statusContainer);
-                    holder.statusText = (TextView)statusText.findViewById(R.id.status_text_view);
+                    holder.statusText = (TextView) statusText.findViewById(R.id.status_text_view);
                     holder.statusText.setText(message.getStatusText());
                     holder.statusText.setTextColor(mStatusColor);
                 }
 
-                    //Set text
-                    View textBubble = mLayoutInflater.inflate(R.layout.message_text_left, holder.mainMessageContainer);
-                    holder.messageText = (TextView) textBubble.findViewById(R.id.message_text);
-                    holder.messageText.setText(message.getMessageText());
-                    //Set bubble color
-                    setColorDrawable(mLeftBubbleColor, holder.messageText.getBackground());
+                //Set text
+                View textBubble = mLayoutInflater.inflate(R.layout.message_text_left, holder.mainMessageContainer);
+                holder.messageText = (TextView) textBubble.findViewById(R.id.message_text);
+                holder.messageText.setText(message.getMessageText());
+                //Set bubble color
+                setColorDrawable(mLeftBubbleColor, holder.messageText.getBackground());
                 holder.timeText.setText(message.getTimeText());
                 //Set Padding
                 convertView.setPadding(0, mMessageTopMargin, 0, mMessageBottomMargin);
@@ -277,17 +276,18 @@ public class MessageAdapter extends ArrayAdapter<Object> {
                 }
             }
 
-            if(null != holder.messageText) {
+            if (null != holder.messageText) {
                 holder.messageText.setMaxWidth(mAttribute.getMessageMaxWidth());
             }
-    }
+        }
 
         return convertView;
     }
 
     /**
      * Add color to drawable
-     * @param color setting color
+     *
+     * @param color    setting color
      * @param drawable which be set color
      */
     public void setColorDrawable(int color, Drawable drawable) {
@@ -301,6 +301,7 @@ public class MessageAdapter extends ArrayAdapter<Object> {
 
     /**
      * Set left bubble background color
+     *
      * @param color left bubble color
      */
     public void setLeftBubbleColor(int color) {
@@ -310,6 +311,7 @@ public class MessageAdapter extends ArrayAdapter<Object> {
 
     /**
      * Set right bubble background color
+     *
      * @param color right bubble color
      */
     public void setRightBubbleColor(int color) {

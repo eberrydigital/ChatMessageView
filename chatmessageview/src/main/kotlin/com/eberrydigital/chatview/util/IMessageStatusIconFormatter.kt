@@ -1,4 +1,4 @@
-package com.github.bassaer.chatmessageview.util
+package com.eberrydigital.chatview.util
 
 import android.graphics.drawable.Drawable
 

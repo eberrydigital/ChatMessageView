@@ -1,5 +1,6 @@
 package com.github.bassaer.chatmessageview.util
 
+import com.eberrydigital.chatview.util.DefaultTimeFormatter
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import java.util.*

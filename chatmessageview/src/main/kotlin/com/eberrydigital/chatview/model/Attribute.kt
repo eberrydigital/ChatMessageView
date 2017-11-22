@@ -1,4 +1,4 @@
-package com.github.bassaer.chatmessageview.models
+package com.eberrydigital.chatview.model
 
 import android.content.Context
 import android.util.AttributeSet

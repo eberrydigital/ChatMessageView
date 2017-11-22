@@ -1,4 +1,4 @@
-package com.github.bassaer.chatmessageview.views;
+package com.eberrydigital.chatview.views;
 
 import android.content.Context;
 import android.os.Handler;
@@ -6,11 +6,11 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ListView;
 
-import com.github.bassaer.chatmessageview.models.Attribute;
-import com.github.bassaer.chatmessageview.models.Message;
-import com.github.bassaer.chatmessageview.util.MessageDateComparator;
-import com.github.bassaer.chatmessageview.util.TimeUtils;
-import com.github.bassaer.chatmessageview.views.adapters.MessageAdapter;
+import com.eberrydigital.chatview.model.Attribute;
+import com.eberrydigital.chatview.models.Message;
+import com.eberrydigital.chatview.util.MessageDateComparator;
+import com.eberrydigital.chatview.util.TimeUtils;
+import com.eberrydigital.chatview.views.adapters.MessageAdapter;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,7 +22,7 @@ import java.util.TimerTask;
  * Simple chat view
  * Created by nakayama on 2016/08/08.
  */
-public class MessageView extends ListView implements View.OnFocusChangeListener{
+public class MessageView extends ListView implements View.OnFocusChangeListener {
 
     /**
      * All contents such as right message, left message, date label
@@ -50,10 +50,6 @@ public class MessageView extends ListView implements View.OnFocusChangeListener{
 
     private Attribute mAttribute;
 
-    public interface OnKeyboardAppearListener {
-        void onKeyboardAppeared(boolean hasChanged);
-    }
-
     public MessageView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mAttribute = new Attribute(context, attrs);
@@ -66,12 +62,11 @@ public class MessageView extends ListView implements View.OnFocusChangeListener{
         init();
     }
 
-
     public void init(List<Message> list) {
         mChatList = new ArrayList<>();
         setChoiceMode(ListView.CHOICE_MODE_NONE);
 
-        for(int i=0; i < list.size(); i++){
+        for (int i = 0; i < list.size(); i++) {
             addMessage(list.get(i));
         }
         //sortMessages(mMessageList);
@@ -110,6 +105,7 @@ public class MessageView extends ListView implements View.OnFocusChangeListener{
 
     /**
      * Set new message and refresh
+     *
      * @param message new message
      */
     public void setMessage(Message message) {
@@ -121,6 +117,7 @@ public class MessageView extends ListView implements View.OnFocusChangeListener{
     /**
      * Add message to chat list and message list.
      * Set date text before set message if sent at the different day.
+     *
      * @param message new message
      */
     public void addMessage(Message message) {
@@ -143,7 +140,6 @@ public class MessageView extends ListView implements View.OnFocusChangeListener{
         mChatList.addAll(insertDateSeparator(mMessageList));
     }
 
-
     private List<Object> insertDateSeparator(List<Message> list) {
         List<Object> result = new ArrayList<>();
         if (list.size() == 0) {
@@ -155,7 +151,7 @@ public class MessageView extends ListView implements View.OnFocusChangeListener{
             return result;
         }
         for (int i = 1; i < list.size(); i++) {
-            Message prevMessage = list.get(i -1);
+            Message prevMessage = list.get(i - 1);
             Message currMessage = list.get(i);
             if (TimeUtils.getDiffDays(prevMessage.getCreatedAt(), currMessage.getCreatedAt()) != 0) {
                 result.add(currMessage.getDateSeparateText());
@@ -174,7 +170,6 @@ public class MessageView extends ListView implements View.OnFocusChangeListener{
             Collections.sort(list, dateComparator);
         }
     }
-
 
     public void setOnKeyboardAppearListener(OnKeyboardAppearListener listener) {
         mOnKeyboardAppearListener = listener;
@@ -245,6 +240,7 @@ public class MessageView extends ListView implements View.OnFocusChangeListener{
 
     /**
      * Return last object (right message or left message or date text)
+     *
      * @return last object of chat
      */
     public Object getLastChatObject() {
@@ -256,5 +252,9 @@ public class MessageView extends ListView implements View.OnFocusChangeListener{
 
     public void setRefreshInterval(long refreshInterval) {
         mRefreshInterval = refreshInterval;
+    }
+
+    public interface OnKeyboardAppearListener {
+        void onKeyboardAppeared(boolean hasChanged);
     }
 }

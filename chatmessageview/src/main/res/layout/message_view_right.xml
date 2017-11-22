@@ -43,12 +43,12 @@
 
                 <TextView
                     android:id="@+id/time_label_text"
+                    fontPath="DINRoundOT-Medium.otf"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/default_time_text"
-                    fontPath="DINRoundOT-Medium.otf"
                     android:textColor="@color/nchWhite"
-                    android:textSize="@dimen/font_small"/>
+                    android:textSize="@dimen/font_small" />
 
             </LinearLayout>
 

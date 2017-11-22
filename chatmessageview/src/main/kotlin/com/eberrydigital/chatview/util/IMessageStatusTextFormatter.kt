@@ -1,4 +1,4 @@
-package com.github.bassaer.chatmessageview.util
+package com.eberrydigital.chatview.util
 
 /**
  * Interface for status text format

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@drawable/background_gradient"
-              android:orientation="vertical">
+    android:orientation="vertical">
 
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/chat_container"
@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:cacheColorHint="@android:color/transparent"
-            android:listSelector="@android:color/transparent"/>
+            android:listSelector="@android:color/transparent" />
 
     </android.support.v4.widget.SwipeRefreshLayout>
 
@@ -25,31 +25,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:orientation="horizontal"
-        >
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/message_edit_text"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:maxLines="5"
-            android:padding="10dp"
-            android:inputType="textNoSuggestions|textVisiblePassword"
-            android:layout_marginRight="10dp"
             android:layout_gravity="center"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
             android:background="@drawable/edittext_rounded_background"
-         />
+            android:inputType="textNoSuggestions|textVisiblePassword"
+            android:maxLines="5"
+            android:padding="10dp" />
 
         <ImageView
             android:id="@+id/send_button"
-            android:layout_margin="5dp"
-            android:layout_marginLeft="10dp"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_gravity="center"
-            android:src="@drawable/send_button"
-            android:contentDescription="@string/send" />
+            android:layout_margin="5dp"
+            android:layout_marginLeft="10dp"
+            android:contentDescription="@string/send"
+            android:src="@drawable/send_button" />
 
     </LinearLayout>
 

@@ -1,4 +1,4 @@
-package com.github.bassaer.chatmessageview.views;
+package com.eberrydigital.chatview.views;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -14,15 +14,12 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.eberrydigital.chatview.model.Attribute;
+import com.eberrydigital.chatview.models.Message;
 import com.github.bassaer.chatmessageview.R;
-import com.github.bassaer.chatmessageview.models.Attribute;
-import com.github.bassaer.chatmessageview.models.Message;
-
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Chat view with edit view and send button
@@ -51,7 +48,7 @@ public class ChatView extends LinearLayout {
     }
 
     private void init(Context context) {
-        mInputMethodManager = (InputMethodManager)context.getSystemService(Context.INPUT_METHOD_SERVICE);
+        mInputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
         View layout = LayoutInflater.from(context).inflate(R.layout.chat_view, this);
         mMessageView = (MessageView) layout.findViewById(R.id.message_view);
         mInputText = (EditText) layout.findViewById(R.id.message_edit_text);
@@ -120,6 +117,7 @@ public class ChatView extends LinearLayout {
 
     /**
      * Set message to right side
+     *
      * @param message Sent message
      */
     public void send(Message message) {
@@ -137,6 +135,7 @@ public class ChatView extends LinearLayout {
 
     /**
      * Set message to left side
+     *
      * @param message Received message
      */
     public void receive(Message message) {
@@ -146,12 +145,12 @@ public class ChatView extends LinearLayout {
         }
     }
 
-    public void setInputText(String input) {
-        mInputText.setText(input);
-    }
-
     public String getInputText() {
         return mInputText.getText().toString();
+    }
+
+    public void setInputText(String input) {
+        mInputText.setText(input);
     }
 
     public void setOnClickSendButtonListener(View.OnClickListener listener) {
@@ -204,6 +203,7 @@ public class ChatView extends LinearLayout {
 
     /**
      * Auto Scroll when message received.
+     *
      * @param enable Whether auto scroll is enable or not
      */
     public void setAutoScroll(boolean enable) {
@@ -220,6 +220,7 @@ public class ChatView extends LinearLayout {
 
     /**
      * Add TEXT watcher
+     *
      * @param watcher behavior when text view status is changed
      */
     public void addTextWatcher(TextWatcher watcher) {
@@ -236,6 +237,7 @@ public class ChatView extends LinearLayout {
 
     /**
      * Auto hiding keyboard after post
+     *
      * @param autoHidingKeyboard if true, keyboard will be hided after post
      */
     public void setAutoHidingKeyboard(boolean autoHidingKeyboard) {

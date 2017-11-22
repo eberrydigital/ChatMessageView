@@ -1,7 +1,7 @@
 package com.github.bassaer.chatmessageview.util
 
 
-import com.github.bassaer.chatmessageview.models.Message
+import com.eberrydigital.chatview.util.MessageDateComparator
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import java.util.*
@@ -35,13 +35,13 @@ internal class MessageDateComparatorTest {
 
     @Test
     fun compareSameDaysDifferentHour() {
-        newCalendar.set(2017, 10, 11, 10,1)
-        oldCalendar.set(2017, 10, 11, 22,1)
+        newCalendar.set(2017, 10, 11, 10, 1)
+        oldCalendar.set(2017, 10, 11, 22, 1)
         newMessage.createdAt = newCalendar
         oldMessage.createdAt = oldCalendar
         assertEquals(messageDateComparator.compare(newMessage, oldMessage), -1)
-        newCalendar.set(2017, 10, 11, 23,2)
-        oldCalendar.set(2017, 10, 11, 23,1)
+        newCalendar.set(2017, 10, 11, 23, 2)
+        oldCalendar.set(2017, 10, 11, 23, 1)
         newMessage.createdAt = newCalendar
         oldMessage.createdAt = oldCalendar
         assertEquals(messageDateComparator.compare(newMessage, oldMessage), 1)
@@ -50,8 +50,8 @@ internal class MessageDateComparatorTest {
 
     @Test
     fun compareSameDaySameHour() {
-        newCalendar.set(2017, 10, 10, 20,45)
-        oldCalendar.set(2017, 10, 10,20,45)
+        newCalendar.set(2017, 10, 10, 20, 45)
+        oldCalendar.set(2017, 10, 10, 20, 45)
         newMessage.createdAt = newCalendar
         oldMessage.createdAt = oldCalendar
         assertEquals(messageDateComparator.compare(newMessage, oldMessage), 0)

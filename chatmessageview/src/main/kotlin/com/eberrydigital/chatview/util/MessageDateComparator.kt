@@ -1,6 +1,7 @@
-package com.github.bassaer.chatmessageview.util
+package com.eberrydigital.chatview.util
 
-import com.github.bassaer.chatmessageview.models.Message
+
+import com.eberrydigital.chatview.models.Message
 import java.util.*
 
 class MessageDateComparator : Comparator<Message> {

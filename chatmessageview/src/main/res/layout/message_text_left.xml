@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    fontPath="DINRoundOT-Medium.otf"
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/message_text"
+    fontPath="DINRoundOT-Medium.otf"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/message_text_shape_left"
@@ -11,6 +10,6 @@
     android:minWidth="@dimen/width_normal"
 
     android:padding="@dimen/spacing_tiny"
-    android:textColor="@color/nchDarkBlueColor"
     android:text="@string/default_text_long"
-    android:textSize="@dimen/font_normal"/>
+    android:textColor="@color/nchDarkBlueColor"
+    android:textSize="@dimen/font_normal" />

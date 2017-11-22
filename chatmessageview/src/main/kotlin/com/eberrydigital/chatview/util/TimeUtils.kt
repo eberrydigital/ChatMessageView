@@ -1,4 +1,4 @@
-package com.github.bassaer.chatmessageview.util
+package com.eberrydigital.chatview.util
 
 
 import android.annotation.SuppressLint
@@ -19,7 +19,7 @@ object TimeUtils {
      */
     @SuppressLint("SimpleDateFormat")
     fun calendarToString(calendar: Calendar, format: String?): String {
-        val sdf = SimpleDateFormat( format ?: "HH:mm")
+        val sdf = SimpleDateFormat(format ?: "HH:mm")
         return sdf.format(calendar.time)
     }
 

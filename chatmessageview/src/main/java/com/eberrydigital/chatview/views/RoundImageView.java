@@ -1,4 +1,4 @@
-package com.github.bassaer.chatmessageview.views;
+package com.eberrydigital.chatview.views;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,7 +7,6 @@ import android.graphics.RectF;
 import android.os.Build;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
-import android.widget.ImageView;
 
 import com.github.bassaer.chatmessageview.R;
 

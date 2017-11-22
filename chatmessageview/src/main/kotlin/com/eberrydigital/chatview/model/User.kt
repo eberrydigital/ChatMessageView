@@ -1,6 +1,4 @@
-package com.github.bassaer.chatmessageview.model
-
-import android.graphics.Bitmap
+package com.eberrydigital.chatview.model
 
 /**
  * User object
