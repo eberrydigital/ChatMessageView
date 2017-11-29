@@ -107,7 +107,7 @@ public class MessageAdapter extends ArrayAdapter<Object> {
                 Object prevItem = getItem(position - 1);
                 if (prevItem instanceof Message) {
                     final Message prevMessage = (Message) prevItem;
-                    if (prevMessage.getUser().equals(message.getUser())) {
+                    if (prevMessage.getUser()!= null && prevMessage.getUser().equals(message.getUser())) {
                         //If send same person, hide username and icon.
                         message.setIconVisibility(false);
                         message.setUsernameVisibility(false);
