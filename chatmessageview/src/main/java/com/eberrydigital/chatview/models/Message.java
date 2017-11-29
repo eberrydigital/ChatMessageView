@@ -164,7 +164,7 @@ public class Message {
     }
 
     public boolean isIncoming() {
-        if (!employeeName.equals("You")) {
+        if (employeeName==null || employeeName.equals("You")) {
             isIncoming = false;
         } else {
             isIncoming = true;
