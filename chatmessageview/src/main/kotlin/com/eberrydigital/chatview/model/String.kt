@@ -1,7 +1,7 @@
 package com.eberrydigital.chatview.model
 
 /**
- * User object
+ * String object
  * Created by nakayama on 2017/01/12.
  */
-class User(var id: Int, var name: String?)
+class String(var id: Int, var name: String?)

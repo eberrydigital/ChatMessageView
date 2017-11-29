@@ -3,7 +3,6 @@ package com.eberrydigital.chatview.models;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 
-import com.eberrydigital.chatview.model.User;
 import com.eberrydigital.chatview.util.DateFormatter;
 import com.eberrydigital.chatview.util.DefaultTimeFormatter;
 import com.eberrydigital.chatview.util.IMessageStatusIconFormatter;
@@ -50,7 +49,7 @@ public class Message {
     /**
      * Sender information
      */
-    private User mUser;
+    private String employeeName;
     /**
      * Whether sender username is shown or not
      */
@@ -63,14 +62,8 @@ public class Message {
      * If true, there is no icon space.
      */
     private boolean mHideIcon = false;
-    /**
-     * Whether the message is shown right side or not.
-     */
-    private boolean isRightMessage;
-    /**
-     * Message content text
-     */
-    private String mMessageText;
+
+
     /**
      * The time message that was created
      */
@@ -116,6 +109,13 @@ public class Message {
      * Message type
      */
     private Type mType;
+    /**
+     * Eberry
+     */
+    private boolean isIncoming;
+    private String created;
+    private String hash;
+    private String text;
 
     /**
      * Constructor
@@ -128,12 +128,20 @@ public class Message {
         mType = Type.TEXT;
     }
 
-    public User getUser() {
-        return mUser;
+    public Message(String employeeName, boolean isIncoming, String text, String created, String hash) {
+        this.employeeName = employeeName;
+        this.isIncoming = isIncoming;
+        this.text = text;
+        this.created = created;
+        this.hash = hash;
     }
 
-    public void setUser(User user) {
-        mUser = user;
+    public String getUser() {
+        return employeeName;
+    }
+
+    public void setUser(String string) {
+        employeeName = string;
     }
 
     public boolean getUsernameVisibility() {
@@ -152,12 +160,12 @@ public class Message {
         mHideIcon = hideIcon;
     }
 
-    public boolean isRightMessage() {
-        return isRightMessage;
+    public boolean isIncoming() {
+        return isIncoming;
     }
 
-    public void setRightMessage(boolean isRightMessage) {
-        this.isRightMessage = isRightMessage;
+    public void setIncoming(boolean isRightMessage) {
+        this.isIncoming = isRightMessage;
     }
 
     public boolean getIconVisibility() {
@@ -169,11 +177,11 @@ public class Message {
     }
 
     public String getMessageText() {
-        return mMessageText;
+        return text;
     }
 
     public void setMessageText(String messageText) {
-        mMessageText = messageText;
+        text = messageText;
     }
 
     public Calendar getCreatedAt() {
@@ -225,7 +233,7 @@ public class Message {
     }
 
     public Drawable getStatusIcon() {
-        return mStatusIconFormatter.getStatusIcon(mStatus, isRightMessage());
+        return mStatusIconFormatter.getStatusIcon(mStatus, isIncoming());
     }
 
     public IMessageStatusTextFormatter getStatusTextFormatter() {
@@ -237,7 +245,7 @@ public class Message {
     }
 
     public String getStatusText() {
-        return mStatusTextFormatter.getStatusText(mStatus, isRightMessage());
+        return mStatusTextFormatter.getStatusText(mStatus, isIncoming());
     }
 
     public Type getType() {
@@ -325,8 +333,8 @@ public class Message {
             message = new Message();
         }
 
-        public Builder setUser(User user) {
-            message.setUser(user);
+        public Builder setUser(String string) {
+            message.setUser(string);
             return this;
         }
 
@@ -347,7 +355,7 @@ public class Message {
 
 
         public Builder setRightMessage(boolean isRight) {
-            message.setRightMessage(isRight);
+            message.setIncoming(isRight);
             return this;
         }
 

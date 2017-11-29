@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 import com.eberrydigital.chatview.R;
 import com.eberrydigital.chatview.model.Attribute;
-import com.eberrydigital.chatview.model.User;
 import com.eberrydigital.chatview.models.Message;
 
 
@@ -108,7 +107,7 @@ public class MessageAdapter extends ArrayAdapter<Object> {
                 Object prevItem = getItem(position - 1);
                 if (prevItem instanceof Message) {
                     final Message prevMessage = (Message) prevItem;
-                    if (prevMessage.getUser().getId() == message.getUser().getId()) {
+                    if (prevMessage.getUser().equals(message.getUser())) {
                         //If send same person, hide username and icon.
                         message.setIconVisibility(false);
                         message.setUsernameVisibility(false);
@@ -116,14 +115,14 @@ public class MessageAdapter extends ArrayAdapter<Object> {
                 }
             }
 
-            User user = message.getUser();
+            String userName = message.getUser();
 
             //Bubble color
             Drawable bubbleDrawable;
             Drawable wrappedDrawable;
             ColorStateList colorStateList;
 
-            if (message.isRightMessage()) {
+            if (message.isIncoming()) {
                 //Right message
                 if (convertView == null) {
                     convertView = mLayoutInflater.inflate(R.layout.message_view_right, null);
@@ -142,10 +141,10 @@ public class MessageAdapter extends ArrayAdapter<Object> {
                 holder.statusContainer.removeAllViews();
                 holder.mainMessageContainer.removeAllViews();
 
-                if (user.getName() != null && message.getUsernameVisibility()) {
+                if (userName != null && message.getUsernameVisibility()) {
                     View usernameView = mLayoutInflater.inflate(R.layout.user_name_right, holder.usernameContainer);
                     holder.username = (TextView) usernameView.findViewById(R.id.message_user_name);
-                    holder.username.setText(user.getName());
+                    holder.username.setText(userName);
                 }
 
 
@@ -197,10 +196,10 @@ public class MessageAdapter extends ArrayAdapter<Object> {
                 holder.mainMessageContainer.removeAllViews();
 
 
-                if (user.getName() != null && message.getUsernameVisibility()) {
+                if (userName != null && message.getUsernameVisibility()) {
                     View usernameView = mLayoutInflater.inflate(R.layout.user_name_left, holder.usernameContainer);
                     holder.username = (TextView) usernameView.findViewById(R.id.message_user_name);
-                    holder.username.setText(user.getName());
+                    holder.username.setText(userName);
                 }
 
                 //Show message status
