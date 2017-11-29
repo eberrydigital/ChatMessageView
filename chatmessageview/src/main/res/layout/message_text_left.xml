@@ -8,7 +8,6 @@
     android:gravity="left"
     android:maxWidth="@dimen/width_normal"
     android:minWidth="@dimen/width_normal"
-
     android:padding="@dimen/spacing_tiny"
     android:text="@string/default_text_long"
     android:textColor="@color/nchDarkBlueColor"

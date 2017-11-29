@@ -137,6 +137,9 @@ public class Message {
     }
 
     public String getUser() {
+        if (employeeName == null) {
+            employeeName = "You";
+        }
         return employeeName;
     }
 
@@ -161,7 +164,7 @@ public class Message {
     }
 
     public boolean isIncoming() {
-        if (employeeName == null) {
+        if (!employeeName.equals("You")) {
             isIncoming = false;
         } else {
             isIncoming = true;

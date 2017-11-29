@@ -122,7 +122,7 @@ public class MessageAdapter extends ArrayAdapter<Object> {
             Drawable wrappedDrawable;
             ColorStateList colorStateList;
 
-            if (message.isIncoming()) {
+            if (!message.isIncoming()) {
                 //Right message
                 if (convertView == null) {
                     convertView = mLayoutInflater.inflate(R.layout.message_view_right, null);
