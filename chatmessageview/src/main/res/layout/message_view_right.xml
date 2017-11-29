@@ -6,8 +6,7 @@
     android:orientation="horizontal"
     android:paddingBottom="@dimen/spacing_micro"
     android:paddingTop="@dimen/spacing_micro"
-    android:layout_marginBottom="@dimen/spacing_micro"
-    android:layout_marginTop="@dimen/spacing_micro"
+
     >
 
     <LinearLayout
@@ -16,6 +15,8 @@
         android:layout_gravity="center_vertical|end"
         android:layout_marginEnd="@dimen/spacing_tiny"
         android:layout_marginRight="@dimen/spacing_tiny"
+        android:layout_marginBottom="@dimen/spacing_micro"
+        android:layout_marginTop="@dimen/spacing_micro"
         android:orientation="vertical">
 
         <FrameLayout
