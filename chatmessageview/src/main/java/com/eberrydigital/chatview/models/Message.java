@@ -161,6 +161,11 @@ public class Message {
     }
 
     public boolean isIncoming() {
+        if (employeeName == null) {
+            isIncoming = false;
+        } else {
+            isIncoming = true;
+        }
         return isIncoming;
     }
 
