@@ -146,7 +146,6 @@ public class MessageView extends ListView implements View.OnFocusChangeListener 
         }
         for (int i = 1; i < list.size(); i++) {
             Message currMessage = list.get(i);
-            Message currMessage = list.get(i);
             result.add(currMessage);
         }
         return result;
