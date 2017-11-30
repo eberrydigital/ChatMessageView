@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: "de.mannodermaus.android-junit5"
 
 android {
     compileSdkVersion 26
@@ -41,9 +40,6 @@ dependencies {
     compile "com.android.support:support-v4:26+"
 
     compile 'uk.co.chrisjenx:calligraphy:2.3.0'
-    testImplementation junit5()
-    testImplementation junit5Params()
-    testCompileOnly junit5EmbeddedRuntime()
 }
 
 task sourcesJar(type: Jar) {

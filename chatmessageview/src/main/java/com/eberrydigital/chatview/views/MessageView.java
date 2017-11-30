@@ -8,7 +8,6 @@ import android.widget.ListView;
 
 import com.eberrydigital.chatview.model.Attribute;
 import com.eberrydigital.chatview.models.Message;
-import com.eberrydigital.chatview.util.MessageDateComparator;
 import com.eberrydigital.chatview.util.TimeUtils;
 import com.eberrydigital.chatview.views.adapters.MessageAdapter;
 
@@ -127,15 +126,10 @@ public class MessageView extends ListView implements View.OnFocusChangeListener 
             mChatList.add(message);
             return;
         }
-        Message prevMessage = mMessageList.get(mMessageList.size() - 2);
-        if (TimeUtils.INSTANCE.getDiffDays(prevMessage.getCreatedAt(), message.getCreatedAt()) != 0) {
-            mChatList.add(message.getDateSeparateText());
-        }
         mChatList.add(message);
     }
 
     public void refresh() {
-        sortMessages(mMessageList);
         mChatList.clear();
         mChatList.addAll(insertDateSeparator(mMessageList));
     }
@@ -151,25 +145,12 @@ public class MessageView extends ListView implements View.OnFocusChangeListener 
             return result;
         }
         for (int i = 1; i < list.size(); i++) {
-            Message prevMessage = list.get(i - 1);
             Message currMessage = list.get(i);
-            if (TimeUtils.getDiffDays(prevMessage.getCreatedAt(), currMessage.getCreatedAt()) != 0) {
-                result.add(currMessage.getDateSeparateText());
-            }
             result.add(currMessage);
         }
         return result;
     }
 
-    /**
-     * Sort messages
-     */
-    public void sortMessages(List<Message> list) {
-        MessageDateComparator dateComparator = new MessageDateComparator();
-        if (list != null) {
-            Collections.sort(list, dateComparator);
-        }
-    }
 
     public void setOnKeyboardAppearListener(OnKeyboardAppearListener listener) {
         mOnKeyboardAppearListener = listener;
