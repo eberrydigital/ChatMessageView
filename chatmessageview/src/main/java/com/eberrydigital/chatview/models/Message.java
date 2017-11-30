@@ -62,12 +62,6 @@ public class Message {
      * If true, there is no icon space.
      */
     private boolean mHideIcon = false;
-
-
-    /**
-     * The time message that was created
-     */
-    private Calendar mCreatedAt;
     /**
      * Whether cell of list view is date separator text or not.
      */
@@ -113,15 +107,14 @@ public class Message {
      * Eberry
      */
     private boolean isIncoming;
-    private String created;
     private String hash;
     private String text;
+    private String created;
 
     /**
      * Constructor
      */
     public Message() {
-        mCreatedAt = Calendar.getInstance();
         mSendTimeFormatter = new DefaultTimeFormatter();
         mDateFormatter = new DateFormatter();
         mSendTimeFormatter = new DefaultTimeFormatter();
@@ -192,16 +185,16 @@ public class Message {
         text = messageText;
     }
 
-    public Calendar getCreatedAt() {
-        return mCreatedAt;
+    public String getCreatedAt() {
+        return created;
     }
 
-    public void setCreatedAt(Calendar calendar) {
-        mCreatedAt = calendar;
+    public void setCreatedAt(String calendar) {
+        created = calendar;
     }
 
     public String getTimeText() {
-        return mSendTimeFormatter.getFormattedTimeText(mCreatedAt);
+        return mSendTimeFormatter.getFormattedTimeText(created);
     }
 
     public boolean isDateCell() {
@@ -213,7 +206,7 @@ public class Message {
     }
 
     public String getDateSeparateText() {
-        return mDateFormatter.getFormattedTimeText(mCreatedAt);
+        return mDateFormatter.getFormattedTimeText(created);
     }
 
     public int getStatus() {
@@ -290,20 +283,6 @@ public class Message {
         mDateFormatter = dateFormatter;
     }
 
-    /**
-     * Return Calendar to compare the day <br>
-     * Reset hour, min, sec, milli sec.<br>
-     *
-     * @return formatted calendar object
-     */
-    public Calendar getCompareCalendar() {
-        Calendar calendar = (Calendar) mCreatedAt.clone();
-        calendar.set(Calendar.HOUR, 0);
-        calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MILLISECOND, 0);
-        return calendar;
-    }
 
     /**
      * Message Types
@@ -372,7 +351,7 @@ public class Message {
             return this;
         }
 
-        public Builder setCreatedAt(Calendar calendar) {
+        public Builder setCreatedAt(String calendar) {
             message.setCreatedAt(calendar);
             return this;
         }

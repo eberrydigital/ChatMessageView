@@ -18,9 +18,9 @@ object TimeUtils {
      * @return formatted text
      */
     @SuppressLint("SimpleDateFormat")
-    fun calendarToString(calendar: Calendar, format: String?): String {
+    fun dateToString(date: String, format: String?): String {
         val sdf = SimpleDateFormat(format ?: "HH:mm")
-        return sdf.format(calendar.time)
+        return sdf.format(date)
     }
 
     /**

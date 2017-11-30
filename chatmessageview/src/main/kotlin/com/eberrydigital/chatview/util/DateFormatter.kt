@@ -7,7 +7,7 @@ import java.util.*
  * Created by nakayama on 2017/01/13.
  */
 class DateFormatter : ITimeFormatter {
-    override fun getFormattedTimeText(createdAt: Calendar): String {
-        return TimeUtils.calendarToString(createdAt, "MMM. dd, yyyy")
+    override fun getFormattedTimeText(createdAt: String): String {
+        return TimeUtils.dateToString(createdAt, "MMM. dd, yyyy")
     }
 }

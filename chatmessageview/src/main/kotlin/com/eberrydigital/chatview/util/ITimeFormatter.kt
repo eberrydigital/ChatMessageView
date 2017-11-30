@@ -13,5 +13,5 @@ interface ITimeFormatter {
      * @param createdAt The time that message was created
      * @return Formatted time text
      */
-    fun getFormattedTimeText(createdAt: Calendar): String
+    fun getFormattedTimeText(createdAt: String): String
 }
