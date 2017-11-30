@@ -8,6 +8,6 @@ import java.util.*
  */
 class DateFormatter : ITimeFormatter {
     override fun getFormattedTimeText(createdAt: String): String {
-        return TimeUtils.dateToString(createdAt, "MMM. dd, yyyy")
+        return TimeUtils.dateToString(createdAt, "yyyy-MMM-dd HH:mm:ss")
     }
 }
