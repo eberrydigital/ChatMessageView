@@ -2,6 +2,8 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: "de.mannodermaus.android-junit5"
 
+
+
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
@@ -29,6 +31,8 @@ android {
 }
 
 apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.eberrydigital'
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
