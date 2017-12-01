@@ -241,7 +241,7 @@ public class Message {
     }
 
     public Drawable getStatusIcon() {
-        return mStatusIconFormatter.getStatusIcon(mStatus, isIncoming());
+        return mStatusIconFormatter.getStatusIcon(mStatus, !isIncoming());
     }
 
     public IMessageStatusTextFormatter getStatusTextFormatter() {
@@ -253,7 +253,7 @@ public class Message {
     }
 
     public String getStatusText() {
-        return mStatusTextFormatter.getStatusText(mStatus, isIncoming());
+        return mStatusTextFormatter.getStatusText(mStatus, !isIncoming());
     }
 
     public Type getType() {
