@@ -2,11 +2,6 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: "de.mannodermaus.android-junit5"
 
-Properties properties = new Properties()
-properties.load(project.rootProject.file('version.properties').newDataInputStream())
-
-def libVersion = properties.getProperty('version')
-
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.2"
@@ -15,7 +10,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
-        versionName libVersion
+        versionName "1.6.1"
     }
     buildTypes {
         release {
@@ -34,71 +29,6 @@ android {
 }
 
 apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
-
-version = libVersion
-
-def siteUrl = 'https://github.com/eberrydigital/ChatMessageView'
-def gitUrl = 'https://github.com/eberrydigital/ChatMessageView.git'
-
-def localProperties = project.rootProject.file('local.properties')
-
-bintray {
-    if (localProperties.exists()) {
-        properties.load(localProperties.newDataInputStream())
-        user = properties.getProperty('bintray_user')
-        key = properties.getProperty('bintray_api_key')
-    } else {
-        //Circle CI ENV
-        user = System.getenv('BINTRAY_USER')
-        key = System.getenv('BINTRAY_API_KEY')
-    }
-
-    configurations = ['archives']
-
-    pkg {
-        repo = 'ChatMessageView'
-        name = project.name
-        userOrg = 'tnakayama'
-        desc = 'Chat UI Library for Android'
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        licenses = ['MIT']
-        labels = ['android']
-        publicDownloadNumbers = true
-    }
-}
-
-install {
-    repositories.mavenInstaller {
-        pom {
-            project {
-                packaging 'aar'
-                name = project.name
-                url = siteUrl
-                licenses {
-                    license {
-                        name 'The MIT License (MIT)'
-                        url 'https://opensource.org/licenses/mit-license.php'
-                    }
-                }
-                developers {
-                    developer {
-                        id 'bassaer'
-                        name 'Tsubasa Nakayama'
-                        email 'app.nakayama@gmail.com'
-                    }
-                }
-                scm {
-                    connection = gitUrl
-                    developerConnection = gitUrl
-                    url siteUrl
-                }
-            }
-        }
-    }
-}
-
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
@@ -136,20 +66,8 @@ task findConventions << {
     println project.getConvention()
 }
 
-def repo = new File(rootDir, "repository")
-
 apply plugin: "maven"
 
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            repository url: "file://${repo.absolutePath}"
-            pom.version = libVersion
-            pom.groupId = 'com.github.eberrydigital'
-            pom.artifactId = 'chatmessageview'
-        }
-    }
-}
 repositories {
     mavenCentral()
 }
