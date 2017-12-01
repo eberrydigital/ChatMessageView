@@ -194,7 +194,11 @@ public class Message {
     }
 
     public String getTimeText() {
-        return mSendTimeFormatter.getFormattedTimeText(created);
+        if (created!=null) {
+            return mSendTimeFormatter.getFormattedTimeText(created);
+        }
+        return "";
+
     }
 
     public boolean isDateCell() {
@@ -206,7 +210,10 @@ public class Message {
     }
 
     public String getDateSeparateText() {
-        return mDateFormatter.getFormattedTimeText(created);
+        if (created!=null) {
+            return mDateFormatter.getFormattedTimeText(created);
+        }
+        return "";
     }
 
     public int getStatus() {
