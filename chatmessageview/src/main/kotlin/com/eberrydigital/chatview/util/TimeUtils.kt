@@ -19,7 +19,8 @@ object TimeUtils {
      */
     @SuppressLint("SimpleDateFormat")
     fun dateToString(date: String, format: String?): String {
-        val sdf = SimpleDateFormat(format ?: "HH:mm")
+        val sdf = SimpleDateFormat(format ?: "HH:mm", Locale.getDefault())
+        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
         return sdf.format(date)
     }
 
