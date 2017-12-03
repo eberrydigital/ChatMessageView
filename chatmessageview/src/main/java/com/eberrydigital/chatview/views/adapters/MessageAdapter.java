@@ -40,6 +40,7 @@ public class MessageAdapter extends ArrayAdapter<Object> {
     private Message.OnBubbleClickListener mOnBubbleClickListener;
     private Message.OnIconLongClickListener mOnIconLongClickListener;
     private Message.OnBubbleLongClickListener mOnBubbleLongClickListener;
+    private Message.OnStausIconClickListener mOnStausIconClickListener;
 
     private int mDateSeparatorColor = ContextCompat.getColor(getContext(), R.color.blueGray500);
     private int mLeftBubbleColor;
@@ -123,7 +124,7 @@ public class MessageAdapter extends ArrayAdapter<Object> {
             ColorStateList colorStateList;
 
             if (!message.isIncoming()) {
-                //Right message
+                //Left message
                 if (convertView == null) {
                     convertView = mLayoutInflater.inflate(R.layout.message_view_right, null);
                     holder = new MessageViewHolder();
@@ -176,7 +177,7 @@ public class MessageAdapter extends ArrayAdapter<Object> {
                 convertView.setPadding(0, mMessageTopMargin, 0, mMessageBottomMargin);
 
             } else {
-                //Left message
+                //Right message
                 if (convertView == null) {
                     convertView = mLayoutInflater.inflate(R.layout.message_view_left, null);
                     holder = new MessageViewHolder();
@@ -209,6 +210,16 @@ public class MessageAdapter extends ArrayAdapter<Object> {
                     holder.statusIcon = (ImageView) statusIcon.findViewById(R.id.status_icon_image_view);
                     holder.statusIcon.setImageDrawable(message.getStatusIcon());
                     setColorDrawable(mStatusColor, holder.statusIcon.getDrawable());
+
+                    if (mOnStausIconClickListener != null) {
+                        holder.mainMessageContainer.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                mOnStausIconClickListener.onStausIconClick(message);
+                            }
+                        });
+                    }
+
                 } else if (message.getMessageStatusType() == Message.MESSAGE_STATUS_TEXT || message.getMessageStatusType() == Message.MESSAGE_STATUS_TEXT_LEFT_ONLY) {
                     //Show message status text
                     View statusText = mLayoutInflater.inflate(R.layout.message_status_text, holder.statusContainer);

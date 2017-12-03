@@ -110,6 +110,7 @@ public class Message {
     private String hash;
     private String text;
     private String created;
+    private int id;
 
     /**
      * Constructor
@@ -281,6 +282,14 @@ public class Message {
         mSendTimeFormatter = sendTimeFormatter;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     /**
      * Set custom date text formatter
      *
@@ -315,6 +324,10 @@ public class Message {
 
     public interface OnIconLongClickListener {
         void onIconLongClick(Message message);
+    }
+
+    public interface OnStausIconClickListener {
+        void onStausIconClick(Message message);
     }
 
     /**

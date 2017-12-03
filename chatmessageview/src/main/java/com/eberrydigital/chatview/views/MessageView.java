@@ -68,7 +68,6 @@ public class MessageView extends ListView implements View.OnFocusChangeListener 
         for (int i = 0; i < list.size(); i++) {
             addMessage(list.get(i));
         }
-        //sortMessages(mMessageList);
         refresh();
         init();
     }
@@ -113,6 +112,11 @@ public class MessageView extends ListView implements View.OnFocusChangeListener 
         mMessageAdapter.notifyDataSetChanged();
     }
 
+    public  void updateMessage(Message message) {
+        mMessageList.set(message.getId(), message);
+        refresh();
+        mMessageAdapter.notifyDataSetChanged();}
+
     /**
      * Add message to chat list and message list.
      * Set date text before set message if sent at the different day.
@@ -122,6 +126,7 @@ public class MessageView extends ListView implements View.OnFocusChangeListener 
     public void addMessage(Message message) {
         mMessageList.add(message);
         if (mMessageList.size() == 1) {
+            message.setId(mMessageList.size());
             mChatList.add(message.getDateSeparateText());
             mChatList.add(message);
             return;
