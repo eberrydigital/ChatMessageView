@@ -200,6 +200,10 @@ public class ChatView extends LinearLayout {
     public void setOnIconLongClickListener(Message.OnIconLongClickListener listener) {
         mMessageView.setOnIconLongClickListener(listener);
     }
+    
+    public void setOnStatusClickListener(Message.OnStausIconClickListener listener) {
+        mMessageView.setOnStatusClickListener(listener);
+    }
 
     /**
      * Auto Scroll when message received.

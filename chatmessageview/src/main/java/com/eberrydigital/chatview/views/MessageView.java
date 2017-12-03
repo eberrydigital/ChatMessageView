@@ -216,6 +216,10 @@ public class MessageView extends ListView implements View.OnFocusChangeListener 
         mMessageAdapter.setOnIconLongClickListener(listener);
     }
 
+    public void setOnStatusClickListener(Message.OnStausIconClickListener listener) {
+        mMessageAdapter.setOnStatusClickListener(listener);
+    }
+
     public void setMessageMarginTop(int px) {
         mMessageAdapter.setMessageTopMargin(px);
     }

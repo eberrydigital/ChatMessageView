@@ -345,6 +345,10 @@ public class MessageAdapter extends ArrayAdapter<Object> {
         mOnBubbleLongClickListener = onBubbleLongClickListener;
     }
 
+    public void setOnStatusClickListener(Message.OnStausIconClickListener onStausIconClickListener) {
+        mOnStausIconClickListener = onStausIconClickListener;
+    }
+
     public void setDateSeparatorColor(int dateSeparatorColor) {
         mDateSeparatorColor = dateSeparatorColor;
         notifyDataSetChanged();
