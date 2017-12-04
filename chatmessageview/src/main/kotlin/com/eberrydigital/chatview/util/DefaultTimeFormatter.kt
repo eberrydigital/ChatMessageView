@@ -1,5 +1,6 @@
 package com.eberrydigital.chatview.util
 
+import com.eberrydigital.chatview.util.TimeUtils.getParsedDate
 import java.util.*
 
 /**
@@ -8,6 +9,6 @@ import java.util.*
  */
 class DefaultTimeFormatter : ITimeFormatter {
     override fun getFormattedTimeText(createdAt: String): String {
-        return TimeUtils.dateToString(createdAt, "HH:mm")
+        return getParsedDate(createdAt) ?: ""
     }
 }

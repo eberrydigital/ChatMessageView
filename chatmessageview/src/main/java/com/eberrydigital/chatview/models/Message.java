@@ -8,6 +8,7 @@ import com.eberrydigital.chatview.util.DefaultTimeFormatter;
 import com.eberrydigital.chatview.util.IMessageStatusIconFormatter;
 import com.eberrydigital.chatview.util.IMessageStatusTextFormatter;
 import com.eberrydigital.chatview.util.ITimeFormatter;
+import com.eberrydigital.chatview.util.TimeUtils;
 
 import java.util.Calendar;
 
@@ -188,7 +189,7 @@ public class Message {
 
     public String getCreatedAt() {
         if (created == null ) {
-            created = mSendTimeFormatter.getUTCdatetimeAsString();
+            created = TimeUtils.INSTANCE.getUTCDateTimeAsString();
         }
         return created;
     }
@@ -202,7 +203,6 @@ public class Message {
             return mSendTimeFormatter.getFormattedTimeText(created);
         }
         return "";
-
     }
 
     public boolean isDateCell() {
