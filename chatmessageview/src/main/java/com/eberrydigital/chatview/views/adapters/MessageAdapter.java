@@ -300,12 +300,7 @@ public class MessageAdapter extends ArrayAdapter<Object> {
      * @param drawable which be set color
      */
     public void setColorDrawable(int color, Drawable drawable) {
-        if (drawable == null) {
-            return;
-        }
-        ColorStateList colorStateList = ColorStateList.valueOf(color);
-        Drawable wrappedDrawable = DrawableCompat.wrap(drawable);
-        DrawableCompat.setTintList(wrappedDrawable, colorStateList);
+        
     }
 
     /**
