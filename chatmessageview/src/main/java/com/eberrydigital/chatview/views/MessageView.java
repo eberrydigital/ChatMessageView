@@ -112,8 +112,10 @@ public class MessageView extends ListView implements View.OnFocusChangeListener 
         mMessageAdapter.notifyDataSetChanged();
     }
 
-    public  void updateMessage(Message message) {
-        mMessageList.set(message.getId(), message);
+    public  void updateMessage(Message message, int status) {
+        int index = mMessageList.indexOf(message);
+        message.setStatus(status);
+        mMessageList.set(index, message);
         refresh();
         mMessageAdapter.notifyDataSetChanged();}
 
