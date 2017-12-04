@@ -8,10 +8,15 @@ import java.util.*
  */
 interface ITimeFormatter {
 
+    var DATEFORMAT: String
+        get() = this.DATEFORMAT
+        set(value) {"yyyy-MM-dd'T'HH:mm:ss" }
     /**
      * Format the time text which is next to the chat bubble.
      * @param createdAt The time that message was created
      * @return Formatted time text
      */
     fun getFormattedTimeText(createdAt: String): String
+    fun getParsedDate(date: String): String?
+    fun  getUTCdatetimeAsString(): String
 }

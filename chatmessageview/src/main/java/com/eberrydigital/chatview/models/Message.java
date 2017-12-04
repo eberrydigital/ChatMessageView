@@ -187,6 +187,9 @@ public class Message {
     }
 
     public String getCreatedAt() {
+        if (created == null ) {
+            created = mSendTimeFormatter.getUTCdatetimeAsString();
+        }
         return created;
     }
 
