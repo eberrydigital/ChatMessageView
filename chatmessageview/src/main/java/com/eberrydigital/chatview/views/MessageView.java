@@ -112,12 +112,14 @@ public class MessageView extends ListView implements View.OnFocusChangeListener 
         mMessageAdapter.notifyDataSetChanged();
     }
 
-    public  void updateMessage(Message message, int status) {
+    public  void updateMessage(Message message, int status, Message.OnStausIconClickListener iconClickListener) {
         int index = mMessageList.indexOf(message);
         message.setStatus(status);
         mMessageList.set(index, message);
         refresh();
-        mMessageAdapter.notifyDataSetChanged();}
+        mMessageAdapter.setOnStatusClickListener(iconClickListener);
+        mMessageAdapter.notifyDataSetChanged();
+    }
 
     /**
      * Add message to chat list and message list.
