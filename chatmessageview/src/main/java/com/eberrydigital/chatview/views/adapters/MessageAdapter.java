@@ -156,6 +156,14 @@ public class MessageAdapter extends ArrayAdapter<Object> {
                     holder.statusIcon = (ImageView) statusIcon.findViewById(R.id.status_icon_image_view);
                     holder.statusIcon.setImageDrawable(message.getStatusIcon());
                     setColorDrawable(mStatusColor, holder.statusIcon.getDrawable());
+                    if (mOnStausIconClickListener != null) {
+                        holder.statusContainer.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                mOnStausIconClickListener.onStausIconClick(message);
+                            }
+                        });
+                    }
                 } else if (message.getMessageStatusType() == Message.MESSAGE_STATUS_TEXT || message.getMessageStatusType() == Message.MESSAGE_STATUS_TEXT_RIGHT_ONLY) {
                     //Show message status text
                     View statusText = mLayoutInflater.inflate(R.layout.message_status_text, holder.statusContainer);
@@ -210,14 +218,6 @@ public class MessageAdapter extends ArrayAdapter<Object> {
                     holder.statusIcon = (ImageView) statusIcon.findViewById(R.id.status_icon_image_view);
                     holder.statusIcon.setImageDrawable(message.getStatusIcon());
                     setColorDrawable(mStatusColor, holder.statusIcon.getDrawable());
-                    if (mOnStausIconClickListener != null) {
-                        holder.mainMessageContainer.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                mOnStausIconClickListener.onStausIconClick(message);
-                            }
-                        });
-                    }
 
                 } else if (message.getMessageStatusType() == Message.MESSAGE_STATUS_TEXT || message.getMessageStatusType() == Message.MESSAGE_STATUS_TEXT_LEFT_ONLY) {
                     //Show message status text
