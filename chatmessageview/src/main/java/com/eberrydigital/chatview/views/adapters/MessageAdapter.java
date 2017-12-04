@@ -210,7 +210,6 @@ public class MessageAdapter extends ArrayAdapter<Object> {
                     holder.statusIcon = (ImageView) statusIcon.findViewById(R.id.status_icon_image_view);
                     holder.statusIcon.setImageDrawable(message.getStatusIcon());
                     setColorDrawable(mStatusColor, holder.statusIcon.getDrawable());
-
                     if (mOnStausIconClickListener != null) {
                         holder.mainMessageContainer.setOnClickListener(new View.OnClickListener() {
                             @Override
