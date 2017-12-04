@@ -117,6 +117,7 @@ public class Message {
      * Constructor
      */
     public Message() {
+        created = TimeUtils.INSTANCE.getUTCDateTimeAsString();
         mSendTimeFormatter = new DefaultTimeFormatter();
         mDateFormatter = new DateFormatter();
         mSendTimeFormatter = new DefaultTimeFormatter();

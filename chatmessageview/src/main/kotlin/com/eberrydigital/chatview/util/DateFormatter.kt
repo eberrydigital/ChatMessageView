@@ -11,7 +11,7 @@ import java.util.*
 class DateFormatter : ITimeFormatter {
 
     override fun getFormattedTimeText(createdAt: String): String {
-        return TimeUtils.dateToString(createdAt, "yyyy-MM-dd'T'HH:mm:ss'Z'");
+        return TimeUtils.getParsedDate(createdAt) ?: "";
     }
 
 }
