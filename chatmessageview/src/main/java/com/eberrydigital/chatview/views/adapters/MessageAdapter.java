@@ -155,7 +155,6 @@ public class MessageAdapter extends ArrayAdapter<Object> {
                     View statusIcon = mLayoutInflater.inflate(R.layout.message_status_icon, holder.statusContainer);
                     holder.statusIcon = (ImageView) statusIcon.findViewById(R.id.status_icon_image_view);
                     holder.statusIcon.setImageDrawable(message.getStatusIcon());
-                    setColorDrawable(mStatusColor, holder.statusIcon.getDrawable());
                     if (mOnStausIconClickListener != null) {
                         holder.statusContainer.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -176,8 +175,6 @@ public class MessageAdapter extends ArrayAdapter<Object> {
                 View textBubble = mLayoutInflater.inflate(R.layout.message_text_right, holder.mainMessageContainer);
                 holder.messageText = (TextView) textBubble.findViewById(R.id.message_text);
                 holder.messageText.setText(message.getMessageText());
-                //Set bubble color
-                setColorDrawable(mRightBubbleColor, holder.messageText.getBackground());
 
                 holder.timeText.setText(message.getTimeText());
 
@@ -217,7 +214,6 @@ public class MessageAdapter extends ArrayAdapter<Object> {
                     View statusIcon = mLayoutInflater.inflate(R.layout.message_status_icon, holder.statusContainer);
                     holder.statusIcon = (ImageView) statusIcon.findViewById(R.id.status_icon_image_view);
                     holder.statusIcon.setImageDrawable(message.getStatusIcon());
-                    setColorDrawable(mStatusColor, holder.statusIcon.getDrawable());
 
                 } else if (message.getMessageStatusType() == Message.MESSAGE_STATUS_TEXT || message.getMessageStatusType() == Message.MESSAGE_STATUS_TEXT_LEFT_ONLY) {
                     //Show message status text
@@ -231,8 +227,6 @@ public class MessageAdapter extends ArrayAdapter<Object> {
                 View textBubble = mLayoutInflater.inflate(R.layout.message_text_left, holder.mainMessageContainer);
                 holder.messageText = (TextView) textBubble.findViewById(R.id.message_text);
                 holder.messageText.setText(message.getMessageText());
-                //Set bubble color
-                setColorDrawable(mLeftBubbleColor, holder.messageText.getBackground());
                 holder.timeText.setText(message.getTimeText());
                 //Set Padding
                 convertView.setPadding(0, mMessageTopMargin, 0, mMessageBottomMargin);
@@ -291,16 +285,6 @@ public class MessageAdapter extends ArrayAdapter<Object> {
         }
 
         return convertView;
-    }
-
-    /**
-     * Add color to drawable
-     *
-     * @param color    setting color
-     * @param drawable which be set color
-     */
-    public void setColorDrawable(int color, Drawable drawable) {
-        
     }
 
     /**
