@@ -38,13 +38,13 @@ object TimeUtils {
     }
 
     @Throws(Exception::class)
-     fun getParsedDate(date: String): String? {
+     fun getParsedDate(date: String , format: String ?= "MMM. dd, yyyy") : String? {
         val sdf = SimpleDateFormat(DATEFORMAT, Locale.getDefault())
         var s2: String? = null
         val d: Date
         try {
             d = sdf.parse(date)
-            s2 = SimpleDateFormat("MMM. dd, yyyy").format(d)
+            s2 = SimpleDateFormat(format).format(d)
 
         } catch (e: ParseException) {
 

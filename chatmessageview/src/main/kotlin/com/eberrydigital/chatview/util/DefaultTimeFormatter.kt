@@ -9,6 +9,6 @@ import java.util.*
  */
 class DefaultTimeFormatter : ITimeFormatter {
     override fun getFormattedTimeText(createdAt: String): String {
-        return getParsedDate(createdAt) ?: ""
+        return getParsedDate(createdAt,"HH:mm") ?: ""
     }
 }
