@@ -11,9 +11,7 @@ import java.util.*
  * Created by nakayama on 2016/12/02.
  */
 object TimeUtils {
-    var DATEFORMAT: String
-        get() = this.DATEFORMAT
-        set(value) {"yyyy-MM-dd'T'HH:mm:ss" }
+    var DATEFORMAT: String = "yyyy-MM-dd'T'HH:mm:ss"
     /***
      * Return formatted text of calendar
      * @param calendar Calendar object to format
