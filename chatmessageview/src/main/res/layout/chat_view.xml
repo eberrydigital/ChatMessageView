@@ -37,8 +37,7 @@
             android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:background="@drawable/edittext_rounded_background"
-            android:inputType="textNoSuggestions|textVisiblePassword"
-            android:maxLines="5"
+            android:inputType="textNoSuggestions|textVisiblePassword|textCapSentences|textMultiLine"
             android:padding="5dp" />
 
         <ImageView
