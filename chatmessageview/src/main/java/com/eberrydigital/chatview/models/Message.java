@@ -425,6 +425,11 @@ public class Message {
             return this;
         }
 
+        public Builder setSender(String sender) {
+            message.setUser(sender);
+            return this;
+        }
+
         public Message build() {
             return message;
         }
