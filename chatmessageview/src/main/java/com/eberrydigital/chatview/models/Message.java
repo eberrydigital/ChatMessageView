@@ -1,8 +1,11 @@
 package com.eberrydigital.chatview.models;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 
+import com.eberrydigital.chatview.R;
 import com.eberrydigital.chatview.util.DateFormatter;
 import com.eberrydigital.chatview.util.DefaultTimeFormatter;
 import com.eberrydigital.chatview.util.IMessageStatusIconFormatter;
@@ -112,6 +115,7 @@ public class Message {
     private String text;
     private String created;
     private int id;
+    private Context mContext;
 
     /**
      * Constructor
@@ -134,7 +138,7 @@ public class Message {
 
     public String getUser() {
         if (employeeName == null) {
-            employeeName = "You";
+            employeeName = mContext.getResources().getString(R.string.you);
         }
         return employeeName;
     }
@@ -160,7 +164,7 @@ public class Message {
     }
 
     public boolean isIncoming() {
-        if (employeeName == null || employeeName.equals("You")) {
+        if (employeeName == null || employeeName.equals(mContext.getResources().getString(R.string.you))) {
             isIncoming = false;
         } else {
             isIncoming = true;
@@ -303,6 +307,10 @@ public class Message {
         mDateFormatter = dateFormatter;
     }
 
+    public void setContext(Context context) {
+        this.mContext = context;
+    }
+
 
     /**
      * Message Types
@@ -343,7 +351,12 @@ public class Message {
         public Builder() {
             message = new Message();
         }
-
+        
+        public Builder setContext(Context context) {
+            message.setContext(context);
+            return this;
+        }
+        
         public Builder setUser(String string) {
             message.setUser(string);
             return this;

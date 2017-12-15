@@ -128,6 +128,7 @@ public class MessageView extends ListView implements View.OnFocusChangeListener 
      * @param message new message
      */
     public void addMessage(Message message) {
+        message.setContext(getContext());
         mMessageList.add(message);
         if (mMessageList.size() == 1) {
             message.setId(mMessageList.size());
