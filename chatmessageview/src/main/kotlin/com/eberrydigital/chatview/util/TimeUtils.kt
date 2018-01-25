@@ -4,7 +4,10 @@ package com.eberrydigital.chatview.util
 import android.annotation.SuppressLint
 import java.text.ParseException
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Calendar
+import java.util.Date
+import java.util.Locale
+import java.util.TimeZone
 
 /**
  * time utility class
@@ -38,7 +41,7 @@ object TimeUtils {
     }
 
     @Throws(Exception::class)
-     fun getParsedDate(date: String , format: String ?= "MMM. dd, yyyy") : String? {
+    fun getParsedDate(date: String, format: String? = "MMM. dd, yyyy"): String? {
         val sdf = SimpleDateFormat(DATEFORMAT, Locale.getDefault())
         var s2: String? = null
         val d: Date
@@ -53,11 +56,11 @@ object TimeUtils {
         return s2
     }
 
-     fun  getUTCDateTimeAsString(): String
-    {
-        val sdf =  SimpleDateFormat(DATEFORMAT);
-        sdf.setTimeZone(TimeZone.getTimeZone("UTC"));
-        val utcTime = sdf.format( Date());
-        return utcTime;
+    @JvmOverloads
+    fun getCurrentDateTimeAsString(chosenTimezone: TimeZone = TimeZone.getDefault()): String {
+        val sdf = SimpleDateFormat(DATEFORMAT).apply {
+            timeZone = chosenTimezone
+        }
+        return sdf.format(Date())
     }
 }
