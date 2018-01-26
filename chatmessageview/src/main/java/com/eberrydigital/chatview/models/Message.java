@@ -3,7 +3,6 @@ package com.eberrydigital.chatview.models;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 
 import com.eberrydigital.chatview.R;
 import com.eberrydigital.chatview.util.DateFormatter;
@@ -12,8 +11,6 @@ import com.eberrydigital.chatview.util.IMessageStatusIconFormatter;
 import com.eberrydigital.chatview.util.IMessageStatusTextFormatter;
 import com.eberrydigital.chatview.util.ITimeFormatter;
 import com.eberrydigital.chatview.util.TimeUtils;
-
-import java.util.Calendar;
 
 /**
  * Message object
@@ -121,7 +118,7 @@ public class Message {
      * Constructor
      */
     public Message() {
-        created = TimeUtils.INSTANCE.getUTCDateTimeAsString();
+        created = TimeUtils.INSTANCE.getCurrentDateTimeAsString();
         mSendTimeFormatter = new DefaultTimeFormatter();
         mDateFormatter = new DateFormatter();
         mSendTimeFormatter = new DefaultTimeFormatter();
@@ -194,7 +191,7 @@ public class Message {
 
     public String getCreatedAt() {
         if (created == null ) {
-            created = TimeUtils.INSTANCE.getUTCDateTimeAsString();
+            created = TimeUtils.INSTANCE.getCurrentDateTimeAsString();
         }
         return created;
     }
